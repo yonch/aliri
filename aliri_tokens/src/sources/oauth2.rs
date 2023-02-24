@@ -154,7 +154,7 @@ async fn request_token<R: CredentialsSource, C: Clock>(
 
     let resp = client
         .post(token_url)
-        .json(&credentials)
+        .form(&credentials)
         .send()
         .await
         .map_err(TokenRequestError::RequestSend)?;
